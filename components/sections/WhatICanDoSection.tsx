@@ -17,11 +17,11 @@ export function WhatICanDoSection() {
       
       <div className="w-full flex flex-col lg:flex-row gap-12 lg:gap-24 relative z-10 lg:items-center">
         <div className="w-full lg:w-[35%] xl:w-[30%] shrink-0">
-          <div className="flex items-center gap-4 mb-6 lg:mb-12">
+          <div className="flex items-center gap-4 mb-4 lg:mb-6">
             <span className="font-mono text-[9px] lg:text-[10px] tracking-widest uppercase text-[#121212]/60 font-bold">02. Expertise</span>
             <div className="flex-1 h-[1px] bg-[#121212]/20"></div>
           </div>
-          <h3 className="font-sans font-black text-[15vw] sm:text-[10vw] lg:text-[7vw] xl:text-[6vw] leading-[0.85] tracking-tighter uppercase text-[#121212] mb-4 lg:mb-6">
+          <h3 className="font-sans font-black text-[15vw] sm:text-[10vw] lg:text-[5vw] xl:text-[4vw] leading-[0.85] tracking-tighter uppercase text-[#121212] mb-3 lg:mb-5">
             Current <br/>
             <span className="italic font-bold text-[#121212]/60">Focus</span>
           </h3>
@@ -30,10 +30,10 @@ export function WhatICanDoSection() {
           </p>
         </div>
 
-        <div className="w-full flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-10 lg:gap-y-16">
+        <div className="w-full flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-6 lg:gap-y-10">
           {capabilities.map((item, i) => (
-             <div key={i} className="flex flex-col border-t-2 border-[#121212] pt-4 lg:pt-6 group">
-                <div className="flex justify-between items-start mb-4 lg:mb-6 pt-1 lg:pt-0">
+             <div key={i} className="flex flex-col border-t-2 border-[#121212] pt-3 lg:pt-4 group">
+                <div className="flex justify-between items-start mb-2 lg:mb-3 pt-1 lg:pt-0">
                    <span className="font-mono text-[9px] lg:text-[10px] tracking-widest uppercase font-bold text-[#121212]">{item.id} — {item.category}</span>
                    {item.badge && (
                       <span className="inline-block bg-[#121212] text-[var(--acid)] font-mono text-[8px] lg:text-[9px] uppercase tracking-wider font-bold px-2 py-1 rounded-sm shrink-0 ml-2 shadow-[2px_2px_0px_rgba(18,18,18,0.3)]">
@@ -41,8 +41,8 @@ export function WhatICanDoSection() {
                       </span>
                    )}
                 </div>
-                <h4 className="font-sans font-black uppercase tracking-tighter text-2xl lg:text-3xl xl:text-4xl mb-3 text-[#121212] group-hover:text-white transition-colors">{item.title}</h4>
-                <p className="font-sans font-semibold text-xs sm:text-sm xl:text-base text-[#121212]/80 max-w-xs xl:max-w-sm leading-snug">{item.desc}</p>
+                <h4 className="font-sans font-black uppercase tracking-tighter text-xl lg:text-2xl xl:text-[28px] mb-2 text-[#121212] group-hover:text-white transition-colors">{item.title}</h4>
+                <p className="font-sans font-semibold text-xs sm:text-sm xl:text-[15px] text-[#121212]/80 max-w-xs xl:max-w-sm leading-snug">{item.desc}</p>
              </div>
           ))}
         </div>

@@ -1,0 +1,139 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --bg-color: #F8F7F3;
+  --text-primary: #121212;
+  --text-secondary: #8e8e8e;
+  --accent: #FF3B22; /* Vibrant Orange/Red */
+  --blue: #1642E6; /* Deep rich vibrant blue */
+  --acid: #E2FF00; /* Acid green/yellow */
+  --pink: #FFD4E5; /* Soft modern pink */
+  --green: #22A066; /* Elegant emerald */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base custom text selections */
+::selection {
+  background-color: var(--acid);
+  color: var(--text-primary);
+}
+
+/* Film grain overlay - Optimized for performance */
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Atmospheric background - Optimized (no huge filter: blur on multiple DOMs) */
+.atmosphere {
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(226, 74, 34, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 10% 80%, rgba(26, 26, 26, 0.4) 0%, transparent 50%);
+  opacity: 0.8;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ======================================
+   FIGMA CUSTOM CURSOR
+   ====================================== */
+
+.figma-cursor-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  mix-blend-mode: normal;
+}
+
+.figma-cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99997;
+  will-change: transform;
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+  margin-left: -2.5px;
+  margin-top: -2.5px;
+}
+
+.figma-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99996;
+  will-change: transform;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.3s ease,
+              border-color 0.3s ease;
+  margin-left: -16px;
+  margin-top: -16px;
+}
+
+.figma-cursor-tag {
+  position: absolute;
+  top: 22px;
+  left: 14px;
+  background: var(--blue);
+  color: #ffffff;
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 4px;
+  border-top-left-radius: 0;
+  white-space: nowrap;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* Disable custom cursor on touch devices */
+@media (pointer: coarse) {
+  .figma-cursor-main,
+  .figma-cursor-trail,
+  .figma-cursor-ring {
+    display: none !important;
+  }
+}

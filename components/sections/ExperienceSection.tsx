@@ -30,15 +30,13 @@ export function ExperienceSection() {
       {/* Structural grid lines */}
       <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#121212]/5 pointer-events-none hidden lg:block"></div>
 
-      <div className="absolute top-[8%] lg:top-[12%] left-6 md:left-12 lg:left-24">
-        <h2 className="font-mono text-[9px] lg:text-[10px] tracking-widest uppercase text-[#121212]/60 font-bold">
-          ( 03. Academic Work )
-        </h2>
-      </div>
-
       <div className="w-full flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24 relative z-10 lg:items-center">
         <div className="w-full lg:w-[35%] xl:w-[30%] shrink-0 flex flex-col items-start">
-          <h3 className="font-sans font-black text-[15vw] sm:text-[10vw] lg:text-[7vw] xl:text-[6vw] text-[#121212] leading-[0.85] uppercase tracking-tighter mb-4 lg:mb-6">
+          <div className="flex items-center gap-4 mb-4 lg:mb-6">
+            <span className="font-mono text-[9px] lg:text-[10px] tracking-widest uppercase text-[#121212]/60 font-bold">03. Academic Work</span>
+            <div className="w-12 h-[1px] bg-[#121212]/20"></div>
+          </div>
+          <h3 className="font-sans font-black text-[15vw] sm:text-[10vw] lg:text-[6vw] xl:text-[5vw] text-[#121212] leading-[0.85] uppercase tracking-tighter mb-4 lg:mb-6">
             Academic <br/>
             <span className="italic font-bold text-[#121212]/50">Projects</span>
           </h3>
